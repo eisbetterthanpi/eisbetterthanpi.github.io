@@ -1,0 +1,116 @@
+body {
+  color:black;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  color: rgb(10, 30, 255);
+  outline: 1px solid red */
+}
+h1 {
+  color:magenta;
+  width:270px;
+  height:90px;
+  border-radius: 30px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Oxygen', sans-serif;
+}
+h1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.foo {
+  color:red;
+}
+
+p{
+  font-family: 'Oxygen', sans-serif;/* from font.google , fallback font */
+}
+
+p > a {
+  color: purple;
+  font-weight: 700px;
+}
+
+div > a{
+  color: white;
+}
+/* div:hover > a{
+  color: cyan;
+} */
+/* div >a :hover > a{
+  color: cyan;
+} */
+a{
+  color: pink;
+}
+
+a:hover{
+  color: green;
+}
+body>div{
+  width:auto;
+  height:300px;
+  padding: 30px;
+  border: 2px solid black;
+  margin: 10px;
+  background-color: aquamarine;
+  outline: 1px solid red; /*for debugging */
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*flex-start;  /* justify is following flex */
+  align-items: flex-start;
+  flex: 1;
+  color: rgb(10, 30, 255);
+}
+div>div{
+  /* width:auto; */
+  width:50px;
+  height:50px;
+  padding: 3px;
+  border: 2px dashed black;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: orange;
+
+  outline: 1px solid red; /*for debugging */
+  /* text-align:center; works for LR*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+/* .parent{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+} */
+
+.parent.hello1{
+
+}
+.hello1{
+  flex: 1;
+}
+.hello2{
+  flex: 2;
+}
+.hello3{
+  flex: 1;
+}
+.hello4{
+  flex: 1;
+}
+
+.intext1{
+  width:50px;
+}
