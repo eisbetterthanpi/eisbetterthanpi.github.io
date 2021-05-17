@@ -1,0 +1,410 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Amiri");
+.sp {
+  display: none;
+}
+
+.pc {
+  display: block;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  vertical-align: baseline;
+  font-size: 100%;
+  outline: 0;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  vertical-align: baseline;
+  font-size: 100%;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  cursor: help;
+
+  border-bottom: 1px dotted;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+
+  border-top: 1px solid #ccc;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+.clearfix:before {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  position: relative;
+  background-color: #000934;
+  color: #4c4c4c;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, Verdana, sans-serif;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  text-align: center;
+}
+
+body.active {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  -webkit-transition: 1.5s ease-out;
+  transition: 1.5s ease-out;
+}
+
+/*****************************************/
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+.wrapper p {
+  max-height: 999999px;
+}
+
+/*****************************************/
+.contents {
+  position: relative;
+  min-height: 1450px;
+  overflow: hidden;
+  background: #000934 url(../img/grade.png) bottom repeat-x;
+}
+
+.contents .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contents .bg .bg01, .contents .bg .bg02 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400%;
+  -webkit-transition: -webkit-transform 5s cubic-bezier(.19, 1, .22, 1);
+  transition: -webkit-transform 5s cubic-bezier(.19, 1, .22, 1);
+  transition: transform 5s cubic-bezier(.19, 1, .22, 1);
+  transition: transform 5s cubic-bezier(.19, 1, .22, 1), -webkit-transform 5s cubic-bezier(.19, 1, .22, 1);
+}
+
+.contents .bg .bg01 {
+  background: url(../img/particle01.png) center top;
+}
+
+.contents .bg .bg02 {
+  background: url(../img/particle02.png) center top;
+}
+
+.contents .logo {
+  position: relative;
+  z-index: 1;
+  width: 35%;
+  margin: 10px auto 20px;
+}
+
+.contents .content__title {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  margin: 120px 0 80px;
+}
+
+.contents .content__title img {
+  height: 100%;
+}
+
+.contents .s-btn {
+  cursor: pointer;
+}
+
+.contents .s-btn a, .contents .s-btn span {
+  display: block;
+  position: relative;
+  padding: 7px 23px 5px 27px;
+  background: #e94f8b;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Amiri", serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+}
+
+.contents .s-btn a::before, .contents .s-btn span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 40px;
+  height: 1px;
+  background: #fff;
+  -webkit-animation: btn-line .75s ease-in-out alternate infinite;
+          animation: btn-line .75s ease-in-out alternate infinite;
+}
+
+@-webkit-keyframes btn-line {
+  0% {
+    top: 50%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    top: 50%;
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+}
+
+@keyframes btn-line {
+  0% {
+    top: 50%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    top: 50%;
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+}
+
+@-webkit-keyframes btn-pagetop {
+  0% {
+    -webkit-transform: translate(-50%, 0px);
+            transform: translate(-50%, 0px);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -3px);
+            transform: translate(-50%, -3px);
+  }
+}
+
+@keyframes btn-pagetop {
+  0% {
+    -webkit-transform: translate(-50%, 0px);
+            transform: translate(-50%, 0px);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -3px);
+            transform: translate(-50%, -3px);
+  }
+}
+
+/*****************************************/
+.modal {
+  display: none;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg_modal.png");
+}
+
+.modal .wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal .inner {
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.modal .inner .btn_close {
+  width: 85px;
+  margin: 50px auto 0;
+}
+
+.modal .inner .player {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  margin-top: 55px;
+}
+
+@media only screen and (max-width: 750px) {
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+  }
+  .contents {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding-bottom: 25%;
+  }
+  .contents .bg .bg01 {
+    background-size: 130% auto;
+  }
+  .contents .bg .bg02 {
+    background-size: 190% auto;
+  }
+  .contents .content__title {
+    height: 42px;
+    margin: 40px 0 47px;
+  }
+  .modal .inner {
+    position: relative;
+  }
+  .modal .inner .btn_close {
+    width: 40px;
+  }
+  .modal .inner .player {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 56.25%;
+  }
+  .modal .inner .player iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .wrapper {
+    min-width: 1280px;
+  }
+  .contents {
+    padding-bottom: 240px;
+    padding-left: 210px;
+  }
+  .contents .s-btn a::before, .contents .s-btn span::before {
+    -webkit-transition: width .8s cubic-bezier(.785, .135, .15, .86);
+    transition: width .8s cubic-bezier(.785, .135, .15, .86);
+  }
+  .contents .s-btn a:hover::before, .contents .s-btn span:hover::before {
+    width: calc(40px + 100%);
+    -webkit-transition: width .8s cubic-bezier(.785, .135, .15, .86);
+    transition: width .8s cubic-bezier(.785, .135, .15, .86);
+  }
+  .modal .inner {
+    position: fixed;
+  }
+  .modal .inner .btn_close {
+    cursor: pointer;
+    cursor: pointer;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+  }
+  .modal .inner .btn_close:hover {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  .modal .inner .player {
+    width: 960px;
+    height: 540px;
+  }
+}
