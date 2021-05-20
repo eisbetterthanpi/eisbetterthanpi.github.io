@@ -16,25 +16,23 @@
 </head>
 
 <body>
-  <script type="module">import * as date from './__target__/datefn.js';</script>
-  <!-- <script>
+  <script type="module">import * as mod from './__target__/datefn.js';</script>
+  <script>
 
     function run() {
       dmy=document.getElementById("input").value;
-
-      // document.getElementById("output").innerHTML = date(dmy);
-      ans= date.date(dmy);
-      // dmy= here(dmy);
+      ans=dmy;
+      // ans= mod.date(dmy);
+      // ans= date(dmy);
       document.getElementById("output").innerHTML = ans;
-      // document.getElementById("output").innerHTML = "31/12/2021";
     }
 
-  </script> -->
+  </script>
   <input type="text" id="input">
   <!-- <button>let's go</button> -->
   <!-- <button type="button" onclick="run()">dss</button> -->
-  <!-- <button type="button" onclick=run()>dss</button> -->
-  <button type="button" onclick=date("31/12/2021")>dss</button>
+  <button type="button" onclick=run()>dss</button>
+  <!-- <button type="button" onclick=date("31/12/2021")>dss</button> -->
   <!-- <input type="button" value="click me" onclick="run()"> -->
   <!-- <input type="button" value="click me" onclick="date.js"> -->
   <p id="output">Predict</p>
