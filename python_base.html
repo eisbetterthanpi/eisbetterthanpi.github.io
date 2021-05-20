@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"> -->
@@ -17,7 +17,7 @@
 
 <body>
   <script type="module">import * as date from './__target__/datefn.js';</script>
-  <script>
+  <!-- <script>
 
     function run() {
       dmy=document.getElementById("input").value;
@@ -29,13 +29,13 @@
       // document.getElementById("output").innerHTML = "31/12/2021";
     }
 
-  </script>
+  </script> -->
   <input type="text" id="input">
   <!-- <button>let's go</button> -->
   <!-- <button type="button" onclick="run()">dss</button> -->
   <!-- <button type="button" onclick=run()>dss</button> -->
-  <!-- <button type="button" onclick=date("31/12/2021")>dss</button> -->
-  <input type="button" value="click me" onclick="run()">
+  <button type="button" onclick=date("31/12/2021")>dss</button>
+  <!-- <input type="button" value="click me" onclick="run()"> -->
   <!-- <input type="button" value="click me" onclick="date.js"> -->
   <p id="output">Predict</p>
 </body>
