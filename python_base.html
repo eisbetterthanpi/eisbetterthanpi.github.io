@@ -2,7 +2,9 @@
 <html>
 <head>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"> -->
-<!-- <script src="__target__/datefn.js"></script> -->
+  <!-- <script src="./temp.js"></script> -->
+  <script src="./__target__/temp.js"></script>
+<!-- <script src="./__target__/datefn.js"></script> -->
 <!-- <script type="module">import * as hello from './__target__/hello.js'; window.hello = hello;</script> -->
 <!-- <script type="module">import '/html code/__target__/datefn.js';</script> -->
 <!-- <script type="module">import './__target__/datefn.js';</script> -->
@@ -16,7 +18,8 @@
 </head>
 
 <body>
-  <script type="module">import * as mod from './__target__/datefn.js';</script>
+  <!-- <script type="module">import * as mod from './__target__/datefn.js';</script> -->
+
   <script>
 
     function run() {
@@ -29,12 +32,7 @@
 
   </script>
   <input type="text" id="input">
-  <!-- <button>let's go</button> -->
-  <!-- <button type="button" onclick="run()">dss</button> -->
   <button type="button" onclick=run()>dss</button>
-  <!-- <button type="button" onclick=date("31/12/2021")>dss</button> -->
-  <!-- <input type="button" value="click me" onclick="run()"> -->
-  <!-- <input type="button" value="click me" onclick="date.js"> -->
   <p id="output">Predict</p>
 </body>
 </html>
