@@ -2,18 +2,11 @@
 <html>
 <head>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"> -->
-  <!-- <script src="./temp.js"></script> -->
   <script src="./__target__/temp.js"></script>
-<!-- <script src="./__target__/datefn.js"></script> -->
-<!-- <script type="module">import * as hello from './__target__/hello.js'; window.hello = hello;</script> -->
-<!-- <script type="module">import '/html code/__target__/datefn.js';</script> -->
-<!-- <script type="module">import './__target__/datefn.js';</script> -->
-<!-- <script type="module">import date from './__target__/datefn.js'; window.date=date;</script> -->
-<!-- <script type="module">import date as date from './__target__/datefn.js';</script> -->
-<!-- <script type="module">import date as date from './__target__/datefn.js'; window.date=date;</script> -->
-<!-- <script type="module" type="text/javascript" src="temp.js"></script> -->
-<!-- <script type="module">import date from './__target__/datefn.js'; -->
-<!-- <script type="module">import * as hello from './__target__/hello.js'; -->
+  <script src="./__target__/./org.transcrypt.__runtime__.js"></script>
+<!-- <script type="module">import * as date from './__target__/datefn.js'; window.date=date;</script>
+<script type="module" type="text/javascript" src="temp.js"></script>
+<script type="module">import './__target__/datefn.js';</script> -->
 
 </head>
 
@@ -25,14 +18,13 @@
     function run() {
       dmy=document.getElementById("input").value;
       // ans=dmy;
-      // ans= mod.date(dmy);
       ans= date(dmy);
       document.getElementById("output").innerHTML = ans;
     }
 
   </script>
   <input type="text" id="input">
-  <button type="button" onclick=run()>dss</button>
+  <button type="button" onclick="run()">dss</button>
   <p id="output">Predict</p>
 </body>
 </html>

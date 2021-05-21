@@ -1,12 +1,12 @@
-// Transcrypt'ed from Python, 2021-05-20 22:24:36
+// Transcrypt'ed from Python, 2021-05-21 14:13:54
 var __name__ = 'org.transcrypt.__runtime__';
-export var __envir__ = {};
+var __envir__ = {};
 __envir__.interpreter_name = 'python';
 __envir__.transpiler_name = 'transcrypt';
 __envir__.executor_name = __envir__.transpiler_name;
 __envir__.transpiler_version = '3.7.16';
 
-export function __nest__ (headObject, tailNames, value) {
+function __nest__ (headObject, tailNames, value) {
     var current = headObject;
     if (tailNames != '') {
         var tailChain = tailNames.split ('.');
@@ -31,15 +31,15 @@ export function __nest__ (headObject, tailNames, value) {
         });
     }
 };
-export function __init__ (module) {
+function __init__ (module) {
     if (!module.__inited__) {
         module.__all__.__init__ (module.__all__);
         module.__inited__ = true;
     }
     return module.__all__;
 };
-export var __proxy__ = false;
-export function __get__ (self, func, quotedFuncName) {
+var __proxy__ = false;
+function __get__ (self, func, quotedFuncName) {
     if (self) {
         if (self.hasOwnProperty ('__class__') || typeof self == 'string' || self instanceof String) {
             if (quotedFuncName) {
@@ -66,7 +66,7 @@ export function __get__ (self, func, quotedFuncName) {
         return func;
     }
 };
-export function __getcm__ (self, func, quotedFuncName) {
+function __getcm__ (self, func, quotedFuncName) {
     if (self.hasOwnProperty ('__class__')) {
         return function () {
             var args = [] .slice.apply (arguments);
@@ -80,10 +80,10 @@ export function __getcm__ (self, func, quotedFuncName) {
         };
     }
 };
-export function __getsm__ (self, func, quotedFuncName) {
+function __getsm__ (self, func, quotedFuncName) {
     return func;
 };
-export var py_metatype = {
+var py_metatype = {
     __name__: 'type',
     __bases__: [],
     __new__: function (meta, name, bases, attribs) {
@@ -117,7 +117,7 @@ export var py_metatype = {
     }
 };
 py_metatype.__metaclass__ = py_metatype;
-export var object = {
+var object = {
     __init__: function (self) {},
     __metaclass__: py_metatype,
     __name__: 'object',
@@ -150,14 +150,14 @@ export var object = {
         return instance;
     }
 };
-export function __class__ (name, bases, attribs, meta) {
+function __class__ (name, bases, attribs, meta) {
     if (meta === undefined) {
         meta = bases [0] .__metaclass__;
     }
     return meta.__new__ (meta, name, bases, attribs);
 };
-export function __pragma__ () {};
-export function __call__ (/* <callee>, <this>, <params>* */) {
+function __pragma__ () {};
+function __call__ (/* <callee>, <this>, <params>* */) {
     var args = [] .slice.apply (arguments);
     if (typeof args [0] == 'object' && '__call__' in args [0]) {
         return args [0] .__call__ .apply (args [1], args.slice (2));
@@ -169,12 +169,12 @@ export function __call__ (/* <callee>, <this>, <params>* */) {
 __envir__.executor_name = __envir__.transpiler_name;
 var __main__ = {__file__: ''};
 var __except__ = null;
-export function __kwargtrans__ (anObject) {
+function __kwargtrans__ (anObject) {
     anObject.__kwargtrans__ = null;
     anObject.constructor = Object;
     return anObject;
 }
-export function __super__ (aClass, methodName) {
+function __super__ (aClass, methodName) {
     for (let base of aClass.__bases__) {
         if (methodName in base) {
            return base [methodName];
@@ -182,23 +182,23 @@ export function __super__ (aClass, methodName) {
     }
     throw new Exception ('Superclass method not found');
 }
-export function property (getter, setter) {
+function property (getter, setter) {
     if (!setter) {
         setter = function () {};
     }
     return {get: function () {return getter (this)}, set: function (value) {setter (this, value)}, enumerable: true};
 }
-export function __setproperty__ (anObject, name, descriptor) {
+function __setproperty__ (anObject, name, descriptor) {
     if (!anObject.hasOwnProperty (name)) {
         Object.defineProperty (anObject, name, descriptor);
     }
 }
-export function assert (condition, message) {
+function assert (condition, message) {
     if (!condition) {
         throw AssertionError (message, new Error ());
     }
 }
-export function __mergekwargtrans__ (object0, object1) {
+function __mergekwargtrans__ (object0, object1) {
     var result = {};
     for (var attrib in object0) {
         result [attrib] = object0 [attrib];
@@ -208,7 +208,7 @@ export function __mergekwargtrans__ (object0, object1) {
     }
     return result;
 };
-export function __mergefields__ (targetClass, sourceClass) {
+function __mergefields__ (targetClass, sourceClass) {
     let fieldNames = ['__reprfields__', '__comparefields__', '__initfields__']
     if (sourceClass [fieldNames [0]]) {
         if (targetClass [fieldNames [0]]) {
@@ -223,7 +223,7 @@ export function __mergefields__ (targetClass, sourceClass) {
         }
     }
 }
-export function __withblock__ (manager, statements) {
+function __withblock__ (manager, statements) {
     if (hasattr (manager, '__enter__')) {
         try {
             manager.__enter__ ();
@@ -241,7 +241,7 @@ export function __withblock__ (manager, statements) {
         manager.close ();
     }
 };
-export function dir (obj) {
+function dir (obj) {
     var aList = [];
     for (var aKey in obj) {
         aList.push (aKey.startsWith ('py_') ? aKey.slice (3) : aKey);
@@ -249,13 +249,13 @@ export function dir (obj) {
     aList.sort ();
     return aList;
 };
-export function setattr (obj, name, value) {
+function setattr (obj, name, value) {
     obj [name] = value;
 };
-export function getattr (obj, name) {
+function getattr (obj, name) {
     return name in obj ? obj [name] : obj ['py_' + name];
 };
-export function hasattr (obj, name) {
+function hasattr (obj, name) {
     try {
         return name in obj || 'py_' + name in obj;
     }
@@ -263,7 +263,7 @@ export function hasattr (obj, name) {
         return false;
     }
 };
-export function delattr (obj, name) {
+function delattr (obj, name) {
     if (name in obj) {
         delete obj [name];
     }
@@ -271,7 +271,7 @@ export function delattr (obj, name) {
         delete obj ['py_' + name];
     }
 };
-export function __in__ (element, container) {
+function __in__ (element, container) {
     if (container === undefined || container === null) {
         return false;
     }
@@ -286,10 +286,10 @@ export function __in__ (element, container) {
         );
     }
 };
-export function __specialattrib__ (attrib) {
+function __specialattrib__ (attrib) {
     return (attrib.startswith ('__') && attrib.endswith ('__')) || attrib == 'constructor' || attrib.startswith ('py_');
 };
-export function len (anObject) {
+function len (anObject) {
     if (anObject === undefined || anObject === null) {
         return 0;
     }
@@ -307,10 +307,10 @@ export function len (anObject) {
     }
     return length;
 };
-export function __i__ (any) {
+function __i__ (any) {
     return py_typeof (any) == dict ? any.py_keys () : any;
 }
-export function __k__ (keyed, key) {
+function __k__ (keyed, key) {
     var result = keyed [key];
     if (typeof result == 'undefined') {
         if (keyed instanceof Array)
@@ -323,7 +323,7 @@ export function __k__ (keyed, key) {
     }
     return result;
 }
-export function __t__ (target) {
+function __t__ (target) {
     return (
         target === undefined || target === null ? false :
         ['boolean', 'number'] .indexOf (typeof target) >= 0 ? target :
@@ -334,7 +334,7 @@ export function __t__ (target) {
         false
     );
 }
-export function float (any) {
+function float (any) {
     if (any == 'inf') {
         return Infinity;
     }
@@ -361,17 +361,17 @@ export function float (any) {
 };
 float.__name__ = 'float';
 float.__bases__ = [object];
-export function int (any) {
+function int (any) {
     return float (any) | 0
 };
 int.__name__ = 'int';
 int.__bases__ = [object];
-export function bool (any) {
+function bool (any) {
     return !!__t__ (any);
 };
 bool.__name__ = 'bool';
 bool.__bases__ = [int];
-export function py_typeof (anObject) {
+function py_typeof (anObject) {
     var aType = typeof anObject;
     if (aType == 'object') {
         try {
@@ -390,7 +390,7 @@ export function py_typeof (anObject) {
         );
     }
 };
-export function issubclass (aClass, classinfo) {
+function issubclass (aClass, classinfo) {
     if (classinfo instanceof Array) {
         for (let aClass2 of classinfo) {
             if (issubclass (aClass, aClass2)) {
@@ -422,7 +422,7 @@ export function issubclass (aClass, classinfo) {
         return aClass == classinfo || classinfo == object;
     }
 };
-export function isinstance (anObject, classinfo) {
+function isinstance (anObject, classinfo) {
     try {
         return '__class__' in anObject ? issubclass (anObject.__class__, classinfo) : issubclass (py_typeof (anObject), classinfo);
     }
@@ -430,10 +430,10 @@ export function isinstance (anObject, classinfo) {
         return issubclass (py_typeof (anObject), classinfo);
     }
 };
-export function callable (anObject) {
+function callable (anObject) {
     return anObject && typeof anObject == 'object' && '__call__' in anObject ? true : typeof anObject === 'function';
 };
-export function repr (anObject) {
+function repr (anObject) {
     try {
         return anObject.__repr__ ();
     }
@@ -479,20 +479,20 @@ export function repr (anObject) {
         }
     }
 };
-export function chr (charCode) {
+function chr (charCode) {
     return String.fromCharCode (charCode);
 };
-export function ord (aChar) {
+function ord (aChar) {
     return aChar.charCodeAt (0);
 };
-export function max (nrOrSeq) {
+function max (nrOrSeq) {
     return arguments.length == 1 ? Math.max (...nrOrSeq) : Math.max (...arguments);
 };
-export function min (nrOrSeq) {
+function min (nrOrSeq) {
     return arguments.length == 1 ? Math.min (...nrOrSeq) : Math.min (...arguments);
 };
-export var abs = Math.abs;
-export function round (number, ndigits) {
+var abs = Math.abs;
+function round (number, ndigits) {
     if (ndigits) {
         var scale = Math.pow (10, ndigits);
         number *= scale;
@@ -506,7 +506,7 @@ export function round (number, ndigits) {
     }
     return rounded;
 };
-export function __jsUsePyNext__ () {
+function __jsUsePyNext__ () {
     try {
         var result = this.__next__ ();
         return {value: result, done: false};
@@ -515,7 +515,7 @@ export function __jsUsePyNext__ () {
         return {value: undefined, done: true};
     }
 }
-export function __pyUseJsNext__ () {
+function __pyUseJsNext__ () {
     var result = this.next ();
     if (result.done) {
         throw StopIteration (new Error ());
@@ -524,7 +524,7 @@ export function __pyUseJsNext__ () {
         return result.value;
     }
 }
-export function py_iter (iterable) {
+function py_iter (iterable) {
     if (typeof iterable == 'string' || '__iter__' in iterable) {
         var result = iterable.__iter__ ();
         result.next = __jsUsePyNext__;
@@ -549,7 +549,7 @@ export function py_iter (iterable) {
     result [Symbol.iterator] = function () {return result;};
     return result;
 }
-export function py_next (iterator) {
+function py_next (iterator) {
     try {
         var result = iterator.__next__ ();
     }
@@ -569,7 +569,7 @@ export function py_next (iterator) {
         return result;
     }
 }
-export function __PyIterator__ (iterable) {
+function __PyIterator__ (iterable) {
     this.iterable = iterable;
     this.index = 0;
 }
@@ -581,7 +581,7 @@ __PyIterator__.prototype.__next__ = function() {
         throw StopIteration (new Error ());
     }
 };
-export function __JsIterator__ (iterable) {
+function __JsIterator__ (iterable) {
     this.iterable = iterable;
     this.index = 0;
 }
@@ -593,12 +593,12 @@ __JsIterator__.prototype.next = function () {
         return {value: undefined, done: true};
     }
 };
-export function py_reversed (iterable) {
+function py_reversed (iterable) {
     iterable = iterable.slice ();
     iterable.reverse ();
     return iterable;
 };
-export function zip () {
+function zip () {
     var args = [] .slice.call (arguments);
     for (var i = 0; i < args.length; i++) {
         if (typeof args [i] == 'string') {
@@ -623,7 +623,7 @@ export function zip () {
         }
     );
 };
-export function range (start, stop, step) {
+function range (start, stop, step) {
     if (stop == undefined) {
         stop = start;
         start = 0;
@@ -640,7 +640,7 @@ export function range (start, stop, step) {
     }
     return result;
 };
-export function any (iterable) {
+function any (iterable) {
     for (let item of iterable) {
         if (bool (item)) {
             return true;
@@ -648,7 +648,7 @@ export function any (iterable) {
     }
     return false;
 }
-export function all (iterable) {
+function all (iterable) {
     for (let item of iterable) {
         if (! bool (item)) {
             return false;
@@ -656,17 +656,17 @@ export function all (iterable) {
     }
     return true;
 }
-export function sum (iterable) {
+function sum (iterable) {
     let result = 0;
     for (let item of iterable) {
         result += item;
     }
     return result;
 }
-export function enumerate (iterable) {
+function enumerate (iterable) {
     return zip (range (len (iterable)), iterable);
 }
-export function copy (anObject) {
+function copy (anObject) {
     if (anObject == null || typeof anObject == "object") {
         return anObject;
     }
@@ -680,7 +680,7 @@ export function copy (anObject) {
         return result;
     }
 }
-export function deepcopy (anObject) {
+function deepcopy (anObject) {
     if (anObject == null || typeof anObject == "object") {
         return anObject;
     }
@@ -694,7 +694,7 @@ export function deepcopy (anObject) {
         return result;
     }
 }
-export function list (iterable) {
+function list (iterable) {
     let instance = iterable ? Array.from (iterable) : [];
     return instance;
 }
@@ -806,14 +806,14 @@ Array.prototype.__mul__ = function (scalar) {
     return result;
 };
 Array.prototype.__rmul__ = Array.prototype.__mul__;
-export function tuple (iterable) {
+function tuple (iterable) {
     let instance = iterable ? [] .slice.apply (iterable) : [];
     instance.__class__ = tuple;
     return instance;
 }
 tuple.__name__ = 'tuple';
 tuple.__bases__ = [object];
-export function set (iterable) {
+function set (iterable) {
     let instance = [];
     if (iterable) {
         for (let index = 0; index < iterable.length; index++) {
@@ -981,7 +981,7 @@ Array.prototype.__gt__ = function (other) {
         !this.__le__ (other)
     );
 };
-export function bytearray (bytable, encoding) {
+function bytearray (bytable, encoding) {
     if (bytable == undefined) {
         return new Uint8Array (0);
     }
@@ -1005,7 +1005,7 @@ export function bytearray (bytable, encoding) {
         }
     }
 }
-export var bytes = bytearray;
+var bytes = bytearray;
 Uint8Array.prototype.__add__ = function (aBytes) {
     let result = new Uint8Array (this.length + aBytes.length);
     result.set (this);
@@ -1020,7 +1020,7 @@ Uint8Array.prototype.__mul__ = function (scalar) {
     return result;
 };
 Uint8Array.prototype.__rmul__ = Uint8Array.prototype.__mul__;
-export function str (stringable) {
+function str (stringable) {
     if (typeof stringable === 'number')
         return stringable.toString();
     else {
@@ -1303,7 +1303,7 @@ function __dgetitem__ (aKey) {
 function __dsetitem__ (aKey, aValue) {
     this [aKey] = aValue;
 }
-export function dict (objectOrPairs) {
+function dict (objectOrPairs) {
     var instance = {};
     if (!objectOrPairs || objectOrPairs instanceof Array) {
         if (objectOrPairs) {
@@ -1364,7 +1364,7 @@ function __setdoc__ (docString) {
     return this;
 }
 __setproperty__ (Function.prototype, '__setdoc__', {value: __setdoc__, enumerable: false});
-export function __jsmod__ (a, b) {
+function __jsmod__ (a, b) {
     if (typeof a == 'object' && '__mod__' in a) {
         return a.__mod__ (b);
     }
@@ -1375,7 +1375,7 @@ export function __jsmod__ (a, b) {
         return a % b;
     }
 };
-export function __mod__ (a, b) {
+function __mod__ (a, b) {
     if (typeof a == 'object' && '__mod__' in a) {
         return a.__mod__ (b);
     }
@@ -1386,7 +1386,7 @@ export function __mod__ (a, b) {
         return ((a % b) + b) % b;
     }
 };
-export function __pow__ (a, b) {
+function __pow__ (a, b) {
     if (typeof a == 'object' && '__pow__' in a) {
         return a.__pow__ (b);
     }
@@ -1397,8 +1397,8 @@ export function __pow__ (a, b) {
         return Math.pow (a, b);
     }
 };
-export var pow = __pow__;
-export function __neg__ (a) {
+var pow = __pow__;
+function __neg__ (a) {
     if (typeof a == 'object' && '__neg__' in a) {
         return a.__neg__ ();
     }
@@ -1406,10 +1406,10 @@ export function __neg__ (a) {
         return -a;
     }
 };
-export function __matmul__ (a, b) {
+function __matmul__ (a, b) {
     return a.__matmul__ (b);
 };
-export function __mul__ (a, b) {
+function __mul__ (a, b) {
     if (typeof a == 'object' && '__mul__' in a) {
         return a.__mul__ (b);
     }
@@ -1426,7 +1426,7 @@ export function __mul__ (a, b) {
         return a * b;
     }
 };
-export function __truediv__ (a, b) {
+function __truediv__ (a, b) {
     if (typeof a == 'object' && '__truediv__' in a) {
         return a.__truediv__ (b);
     }
@@ -1443,7 +1443,7 @@ export function __truediv__ (a, b) {
         return a / b;
     }
 };
-export function __floordiv__ (a, b) {
+function __floordiv__ (a, b) {
     if (typeof a == 'object' && '__floordiv__' in a) {
         return a.__floordiv__ (b);
     }
@@ -1460,7 +1460,7 @@ export function __floordiv__ (a, b) {
         return Math.floor (a / b);
     }
 };
-export function __add__ (a, b) {
+function __add__ (a, b) {
     if (typeof a == 'object' && '__add__' in a) {
         return a.__add__ (b);
     }
@@ -1471,7 +1471,7 @@ export function __add__ (a, b) {
         return a + b;
     }
 };
-export function __sub__ (a, b) {
+function __sub__ (a, b) {
     if (typeof a == 'object' && '__sub__' in a) {
         return a.__sub__ (b);
     }
@@ -1482,7 +1482,7 @@ export function __sub__ (a, b) {
         return a - b;
     }
 };
-export function __lshift__ (a, b) {
+function __lshift__ (a, b) {
     if (typeof a == 'object' && '__lshift__' in a) {
         return a.__lshift__ (b);
     }
@@ -1493,7 +1493,7 @@ export function __lshift__ (a, b) {
         return a << b;
     }
 };
-export function __rshift__ (a, b) {
+function __rshift__ (a, b) {
     if (typeof a == 'object' && '__rshift__' in a) {
         return a.__rshift__ (b);
     }
@@ -1504,7 +1504,7 @@ export function __rshift__ (a, b) {
         return a >> b;
     }
 };
-export function __or__ (a, b) {
+function __or__ (a, b) {
     if (typeof a == 'object' && '__or__' in a) {
         return a.__or__ (b);
     }
@@ -1515,7 +1515,7 @@ export function __or__ (a, b) {
         return a | b;
     }
 };
-export function __xor__ (a, b) {
+function __xor__ (a, b) {
     if (typeof a == 'object' && '__xor__' in a) {
         return a.__xor__ (b);
     }
@@ -1526,7 +1526,7 @@ export function __xor__ (a, b) {
         return a ^ b;
     }
 };
-export function __and__ (a, b) {
+function __and__ (a, b) {
     if (typeof a == 'object' && '__and__' in a) {
         return a.__and__ (b);
     }
@@ -1537,7 +1537,7 @@ export function __and__ (a, b) {
         return a & b;
     }
 };
-export function __eq__ (a, b) {
+function __eq__ (a, b) {
     if (typeof a == 'object' && '__eq__' in a) {
         return a.__eq__ (b);
     }
@@ -1545,7 +1545,7 @@ export function __eq__ (a, b) {
         return a == b;
     }
 };
-export function __ne__ (a, b) {
+function __ne__ (a, b) {
     if (typeof a == 'object' && '__ne__' in a) {
         return a.__ne__ (b);
     }
@@ -1553,7 +1553,7 @@ export function __ne__ (a, b) {
         return a != b
     }
 };
-export function __lt__ (a, b) {
+function __lt__ (a, b) {
     if (typeof a == 'object' && '__lt__' in a) {
         return a.__lt__ (b);
     }
@@ -1561,7 +1561,7 @@ export function __lt__ (a, b) {
         return a < b;
     }
 };
-export function __le__ (a, b) {
+function __le__ (a, b) {
     if (typeof a == 'object' && '__le__' in a) {
         return a.__le__ (b);
     }
@@ -1569,7 +1569,7 @@ export function __le__ (a, b) {
         return a <= b;
     }
 };
-export function __gt__ (a, b) {
+function __gt__ (a, b) {
     if (typeof a == 'object' && '__gt__' in a) {
         return a.__gt__ (b);
     }
@@ -1577,7 +1577,7 @@ export function __gt__ (a, b) {
         return a > b;
     }
 };
-export function __ge__ (a, b) {
+function __ge__ (a, b) {
     if (typeof a == 'object' && '__ge__' in a) {
         return a.__ge__ (b);
     }
@@ -1585,7 +1585,7 @@ export function __ge__ (a, b) {
         return a >= b;
     }
 };
-export function __imatmul__ (a, b) {
+function __imatmul__ (a, b) {
     if ('__imatmul__' in a) {
         return a.__imatmul__ (b);
     }
@@ -1593,7 +1593,7 @@ export function __imatmul__ (a, b) {
         return a.__matmul__ (b);
     }
 };
-export function __ipow__ (a, b) {
+function __ipow__ (a, b) {
     if (typeof a == 'object' && '__pow__' in a) {
         return a.__ipow__ (b);
     }
@@ -1607,7 +1607,7 @@ export function __ipow__ (a, b) {
         return Math.pow (a, b);
     }
 };
-export function __ijsmod__ (a, b) {
+function __ijsmod__ (a, b) {
     if (typeof a == 'object' && '__imod__' in a) {
         return a.__ismod__ (b);
     }
@@ -1621,7 +1621,7 @@ export function __ijsmod__ (a, b) {
         return a % b;
     }
 };
-export function __imod__ (a, b) {
+function __imod__ (a, b) {
     if (typeof a == 'object' && '__imod__' in a) {
         return a.__imod__ (b);
     }
@@ -1635,7 +1635,7 @@ export function __imod__ (a, b) {
         return ((a % b) + b) % b;
     }
 };
-export function __imul__ (a, b) {
+function __imul__ (a, b) {
     if (typeof a == 'object' && '__imul__' in a) {
         return a.__imul__ (b);
     }
@@ -1655,7 +1655,7 @@ export function __imul__ (a, b) {
         return a *= b;
     }
 };
-export function __idiv__ (a, b) {
+function __idiv__ (a, b) {
     if (typeof a == 'object' && '__idiv__' in a) {
         return a.__idiv__ (b);
     }
@@ -1669,7 +1669,7 @@ export function __idiv__ (a, b) {
         return a /= b;
     }
 };
-export function __iadd__ (a, b) {
+function __iadd__ (a, b) {
     if (typeof a == 'object' && '__iadd__' in a) {
         return a.__iadd__ (b);
     }
@@ -1683,7 +1683,7 @@ export function __iadd__ (a, b) {
         return a += b;
     }
 };
-export function __isub__ (a, b) {
+function __isub__ (a, b) {
     if (typeof a == 'object' && '__isub__' in a) {
         return a.__isub__ (b);
     }
@@ -1697,7 +1697,7 @@ export function __isub__ (a, b) {
         return a -= b;
     }
 };
-export function __ilshift__ (a, b) {
+function __ilshift__ (a, b) {
     if (typeof a == 'object' && '__ilshift__' in a) {
         return a.__ilshift__ (b);
     }
@@ -1711,7 +1711,7 @@ export function __ilshift__ (a, b) {
         return a <<= b;
     }
 };
-export function __irshift__ (a, b) {
+function __irshift__ (a, b) {
     if (typeof a == 'object' && '__irshift__' in a) {
         return a.__irshift__ (b);
     }
@@ -1725,7 +1725,7 @@ export function __irshift__ (a, b) {
         return a >>= b;
     }
 };
-export function __ior__ (a, b) {
+function __ior__ (a, b) {
     if (typeof a == 'object' && '__ior__' in a) {
         return a.__ior__ (b);
     }
@@ -1739,7 +1739,7 @@ export function __ior__ (a, b) {
         return a |= b;
     }
 };
-export function __ixor__ (a, b) {
+function __ixor__ (a, b) {
     if (typeof a == 'object' && '__ixor__' in a) {
         return a.__ixor__ (b);
     }
@@ -1753,7 +1753,7 @@ export function __ixor__ (a, b) {
         return a ^= b;
     }
 };
-export function __iand__ (a, b) {
+function __iand__ (a, b) {
     if (typeof a == 'object' && '__iand__' in a) {
         return a.__iand__ (b);
     }
@@ -1767,7 +1767,7 @@ export function __iand__ (a, b) {
         return a &= b;
     }
 };
-export function __getitem__ (container, key) {
+function __getitem__ (container, key) {
     if (typeof container == 'object' && '__getitem__' in container) {
         return container.__getitem__ (key);
     }
@@ -1778,7 +1778,7 @@ export function __getitem__ (container, key) {
         return container [key];
     }
 };
-export function __setitem__ (container, key, value) {
+function __setitem__ (container, key, value) {
     if (typeof container == 'object' && '__setitem__' in container) {
         container.__setitem__ (key, value);
     }
@@ -1789,7 +1789,7 @@ export function __setitem__ (container, key, value) {
         container [key] = value;
     }
 };
-export function __getslice__ (container, lower, upper, step) {
+function __getslice__ (container, lower, upper, step) {
     if (typeof container == 'object' && '__getitem__' in container) {
         return container.__getitem__ ([lower, upper, step]);
     }
@@ -1797,7 +1797,7 @@ export function __getslice__ (container, lower, upper, step) {
         return container.__getslice__ (lower, upper, step);
     }
 };
-export function __setslice__ (container, lower, upper, step, value) {
+function __setslice__ (container, lower, upper, step, value) {
     if (typeof container == 'object' && '__setitem__' in container) {
         container.__setitem__ ([lower, upper, step], value);
     }
@@ -1805,10 +1805,10 @@ export function __setslice__ (container, lower, upper, step, value) {
         container.__setslice__ (lower, upper, step, value);
     }
 };
-export var BaseException =  __class__ ('BaseException', [object], {
+var BaseException =  __class__ ('BaseException', [object], {
 	__module__: __name__,
 });
-export var Exception =  __class__ ('Exception', [BaseException], {
+var Exception =  __class__ ('Exception', [BaseException], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self) {
 		var kwargs = dict ();
@@ -1860,31 +1860,31 @@ export var Exception =  __class__ ('Exception', [BaseException], {
 		}
 	});}
 });
-export var IterableError =  __class__ ('IterableError', [Exception], {
+var IterableError =  __class__ ('IterableError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, error) {
 		Exception.__init__ (self, "Can't iterate over non-iterable", __kwargtrans__ ({error: error}));
 	});}
 });
-export var StopIteration =  __class__ ('StopIteration', [Exception], {
+var StopIteration =  __class__ ('StopIteration', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, error) {
 		Exception.__init__ (self, 'Iterator exhausted', __kwargtrans__ ({error: error}));
 	});}
 });
-export var ValueError =  __class__ ('ValueError', [Exception], {
+var ValueError =  __class__ ('ValueError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var KeyError =  __class__ ('KeyError', [Exception], {
+var KeyError =  __class__ ('KeyError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var AssertionError =  __class__ ('AssertionError', [Exception], {
+var AssertionError =  __class__ ('AssertionError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		if (message) {
@@ -1895,43 +1895,43 @@ export var AssertionError =  __class__ ('AssertionError', [Exception], {
 		}
 	});}
 });
-export var NotImplementedError =  __class__ ('NotImplementedError', [Exception], {
+var NotImplementedError =  __class__ ('NotImplementedError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var IndexError =  __class__ ('IndexError', [Exception], {
+var IndexError =  __class__ ('IndexError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var AttributeError =  __class__ ('AttributeError', [Exception], {
+var AttributeError =  __class__ ('AttributeError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var py_TypeError =  __class__ ('py_TypeError', [Exception], {
+var py_TypeError =  __class__ ('py_TypeError', [Exception], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self, message, error) {
 		Exception.__init__ (self, message, __kwargtrans__ ({error: error}));
 	});}
 });
-export var Warning =  __class__ ('Warning', [Exception], {
+var Warning =  __class__ ('Warning', [Exception], {
 	__module__: __name__,
 });
-export var UserWarning =  __class__ ('UserWarning', [Warning], {
+var UserWarning =  __class__ ('UserWarning', [Warning], {
 	__module__: __name__,
 });
-export var DeprecationWarning =  __class__ ('DeprecationWarning', [Warning], {
+var DeprecationWarning =  __class__ ('DeprecationWarning', [Warning], {
 	__module__: __name__,
 });
-export var RuntimeWarning =  __class__ ('RuntimeWarning', [Warning], {
+var RuntimeWarning =  __class__ ('RuntimeWarning', [Warning], {
 	__module__: __name__,
 });
-export var __sort__ = function (iterable, key, reverse) {
+var __sort__ = function (iterable, key, reverse) {
 	if (typeof key == 'undefined' || (key != null && key.hasOwnProperty ("__kwargtrans__"))) {;
 		var key = null;
 	};
@@ -1979,7 +1979,7 @@ export var __sort__ = function (iterable, key, reverse) {
 		iterable.reverse ();
 	}
 };
-export var sorted = function (iterable, key, reverse) {
+var sorted = function (iterable, key, reverse) {
 	if (typeof key == 'undefined' || (key != null && key.hasOwnProperty ("__kwargtrans__"))) {;
 		var key = null;
 	};
@@ -2010,7 +2010,7 @@ export var sorted = function (iterable, key, reverse) {
 	__sort__ (result, key, reverse);
 	return result;
 };
-export var map = function (func, iterable) {
+var map = function (func, iterable) {
 	return (function () {
 		var __accu0__ = [];
 		for (var item of iterable) {
@@ -2019,7 +2019,7 @@ export var map = function (func, iterable) {
 		return __accu0__;
 	}) ();
 };
-export var filter = function (func, iterable) {
+var filter = function (func, iterable) {
 	if (func == null) {
 		var func = bool;
 	}
@@ -2033,10 +2033,10 @@ export var filter = function (func, iterable) {
 		return __accu0__;
 	}) ();
 };
-export var divmod = function (n, d) {
+var divmod = function (n, d) {
 	return tuple ([Math.floor (n / d), __mod__ (n, d)]);
 };
-export var __Terminal__ =  __class__ ('__Terminal__', [object], {
+var __Terminal__ =  __class__ ('__Terminal__', [object], {
 	__module__: __name__,
 	get __init__ () {return __get__ (this, function (self) {
 		self.buffer = '';
@@ -2115,8 +2115,8 @@ export var __Terminal__ =  __class__ ('__Terminal__', [object], {
 		return answer;
 	});}
 });
-export var __terminal__ = __Terminal__ ();
-export var print = __terminal__.print;
-export var input = __terminal__.input;
+var __terminal__ = __Terminal__ ();
+var print = __terminal__.print;
+var input = __terminal__.input;
 
 //# sourceMappingURL=org.transcrypt.__runtime__.map
